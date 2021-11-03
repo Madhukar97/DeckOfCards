@@ -9,7 +9,6 @@ public class DeckOfCards {
     protected String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
     protected static String[] array = new String[52];
 
-
     public static void main(String[] args) {
         DeckOfCards obj = new DeckOfCards();
         obj.generateRandomCards();
@@ -17,28 +16,31 @@ public class DeckOfCards {
         obj.showCards();
     }
 
-    //Method to show the deck of cards
+    /**
+     * Method to show the deck of cards
+     */
     public void showCards() {
         System.out.println("all cards " + Arrays.toString(array) + " \n");
     }
 
-    //Method to generate deck of cards
+    /**
+     * Method to generate deck of cards
+     */
     public void generateRandomCards() {
         Arrays.fill(array, "");
         for (int i = 0; i < array.length; i++) {
-            String card = randomCard();
+            String newCard = randomCard();
             for (int j = 0; j <= i; j++) {
-                if (array[j].equals(card)) {
-                    card = randomCard();
+                if (array[j].equals(newCard)) {
+                    newCard = randomCard();
                     j = 0;
                 }
             }
-            array[i] = card;
+            array[i] = newCard;
         }
     }
 
     /**
-     *
      * @return returns a random card
      */
     private String randomCard() {
