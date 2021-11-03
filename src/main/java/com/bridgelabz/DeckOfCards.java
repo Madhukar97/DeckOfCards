@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class DeckOfCards {
 
@@ -11,8 +10,7 @@ public class DeckOfCards {
 
     public static void main(String[] args) {
         DeckOfCards obj = new DeckOfCards();
-        obj.generateRandomCards();
-        Arrays.sort(array);
+        obj.generateDeck();
         obj.showCards();
     }
 
@@ -24,27 +22,15 @@ public class DeckOfCards {
     }
 
     /**
-     * Method to generate deck of cards
+     * Method to generate the deck
      */
-    public void generateRandomCards() {
-        Arrays.fill(array, "");
-        for (int i = 0; i < array.length; i++) {
-            String newCard = randomCard();
-            for (int j = 0; j <= i; j++) {
-                if (array[j].equals(newCard)) {
-                    newCard = randomCard();
-                    j = 0;
-                }
+    public void generateDeck(){
+        int k=0;
+        for (String suit : suit) {
+            for (String rank : rank) {
+                array[k] = suit + " " + rank;
+                k++;
             }
-            array[i] = newCard;
         }
-    }
-
-    /**
-     * @return returns a random card
-     */
-    private String randomCard() {
-        Random rand = new Random();
-        return suit[rand.nextInt(4)] + " " + rank[rand.nextInt(13)];
     }
 }
