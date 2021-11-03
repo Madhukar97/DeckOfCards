@@ -7,42 +7,42 @@ public class DeckOfCards {
 
     protected String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
     protected String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-    protected static String[] array1D = new String[52];
+    protected static String[] array = new String[52];
 
 
     public static void main(String[] args) {
         DeckOfCards obj = new DeckOfCards();
         obj.generateRandomCards();
-        Arrays.sort(array1D);
+        Arrays.sort(array);
         obj.showCards();
     }
 
     //Method to show the deck of cards
     public void showCards() {
-        System.out.println("all cards " + Arrays.toString(array1D) + " \n");
+        System.out.println("all cards " + Arrays.toString(array) + " \n");
     }
 
     //Method to generate deck of cards
     public void generateRandomCards() {
-        for (int i = 0; i < array1D.length; i++) {
-            array1D[i] = "";
+        for (int i = 0; i < array.length; i++) {
+            array[i] = "";
         }
         DeckOfCards obj = new DeckOfCards();
-        for (int i = 0; i < array1D.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             String card = randomCard();
             for (int j = 0; j <= i; j++) {
-                if (array1D[j].equals(card)) {
-                    card = obj.randomCard();
+                if (array[j].equals(card)) {
+                    card = randomCard();
                     j = 0;
                 }
             }
-            array1D[i] = card;
+            array[i] = card;
         }
     }
 
     /**
      *
-     * @return
+     * @return returns a random card
      */
     private String randomCard() {
         Random rand = new Random();
