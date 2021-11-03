@@ -24,8 +24,8 @@ public class DeckOfCards {
     /**
      * Method to generate the deck
      */
-    public void generateDeck(){
-        int k=0;
+    public void generateDeck() {
+        int k = 0;
         for (String suit : suit) {
             for (String rank : rank) {
                 array[k] = suit + " " + rank;
