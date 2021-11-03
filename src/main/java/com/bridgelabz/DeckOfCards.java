@@ -24,10 +24,7 @@ public class DeckOfCards {
 
     //Method to generate deck of cards
     public void generateRandomCards() {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = "";
-        }
-        DeckOfCards obj = new DeckOfCards();
+        Arrays.fill(array, "");
         for (int i = 0; i < array.length; i++) {
             String card = randomCard();
             for (int j = 0; j <= i; j++) {
